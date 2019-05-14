@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="A brief overview of Bootstrap’s features and limitations for the creation of accessible content.">
+<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Jekyll v3.8.5">
+
+<meta name="docsearch:language" content="en">
+<meta name="docsearch:version" content="4.3">
+
+<title>Accessibility · Bootstrap</title>
+
+<link rel="canonical" href="index.html">
+
+<!-- Bootstrap core CSS -->
+<link href="../../dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- Documentation extras -->
+
+<link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet">
+
+
+<link href="../../assets/css/docs.min.css" rel="stylesheet">
+
+<!-- Favicons -->
+<link rel="apple-touch-icon" href="../../assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="../../assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="../../assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="../../assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+<link rel="icon" href="../../../../favicon.ico">
+<meta name="msapplication-config" content="/docs/4.3/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@getbootstrap">
+<meta name="twitter:creator" content="@getbootstrap">
+<meta name="twitter:title" content="Accessibility">
+<meta name="twitter:description" content="A brief overview of Bootstrap’s features and limitations for the creation of accessible content.">
+<meta name="twitter:image" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social-logo.png">
+
+<!-- Facebook -->
+<meta property="og:url" content="https://getbootstrap.com/docs/4.3/getting-started/accessibility/">
+<meta property="og:title" content="Accessibility">
+<meta property="og:description" content="A brief overview of Bootstrap’s features and limitations for the creation of accessible content.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="http://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:secure_url" content="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-social.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', 'UA-146052-10', 'getbootstrap.com');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+
+
+  </head>
+  <body>
+    <a class="skippy sr-only sr-only-focusable" href="index.html#content">
+  <span class="skippy-text">Skip to main content</span>
+</a>
+
+
+    <header class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar">
+  <a class="navbar-brand mr-0 mr-md-2" href="../../../../index.html" aria-label="Bootstrap"><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" class="d-block" viewBox="0 0 612 612" role="img" focusable="false"><title>Bootstrap</title><path fill="currentColor" d="M510 8a94.3 94.3 0 0 1 94 94v408a94.3 94.3 0 0 1-94 94H102a94.3 94.3 0 0 1-94-94V102a94.3 94.3 0 0 1 94-94h408m0-8H102C45.9 0 0 45.9 0 102v408c0 56.1 45.9 102 102 102h408c56.1 0 102-45.9 102-102V102C612 45.9 566.1 0 510 0z"/><path fill="currentColor" d="M196.77 471.5V154.43h124.15c54.27 0 91 31.64 91 79.1 0 33-24.17 63.72-54.71 69.21v1.76c43.07 5.49 70.75 35.82 70.75 78 0 55.81-40 89-107.45 89zm39.55-180.4h63.28c46.8 0 72.29-18.68 72.29-53 0-31.42-21.53-48.78-60-48.78h-75.57zm78.22 145.46c47.68 0 72.73-19.34 72.73-56s-25.93-55.37-76.46-55.37h-74.49v111.4z"/></svg></a>
+
+  <div class="navbar-nav-scroll">
+    <ul class="navbar-nav bd-navbar-nav flex-row">
+      <li class="nav-item">
+        <a class="nav-link " href="../introduction/index.html" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="../introduction/index.html" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Documentation</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+  </header>
+
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+          <form class="bd-search d-flex align-items-center">
+  <input type="search" class="form-control" id="search-input" placeholder="Search..." aria-label="Search for..." autocomplete="off" data-docs-version="4.3">
+  <button class="btn btn-link bd-search-docs-toggle d-md-none p-0 ml-3" type="button" data-toggle="collapse" data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"/></svg></button>
+</form>
+
+<nav class="collapse bd-links" id="bd-docs-nav"><div class="bd-toc-item active">
+      <a class="bd-toc-link" href="../introduction/index.html">
+        Getting started
+      </a>
+
+      <ul class="nav bd-sidenav"><li class="active bd-sidenav-active">
+            <a href="../introduction/index.html">
+              Home
+            </a>
+          </li><li>
+            <a href="index.html">
+              Reports
+            </a>
+          </li><li>
+            <a href="../retail/index.html">
+              Retail Outlets
+            </a>
+          </li><li>
+            <a href="../inventory/index.html">
+              Inventory
+            </a>
+          </li><li>
+            <a href="../reorder/index.html">
+              Re-Order
+            </a>
+          </li><li>
+            <a href="../delivery/index.html">
+              Delivery
+            </a>
+          </li><li>
+            <a href="../accounts/index.html">
+              Accounts
+            </a>
+          </li><li>
+            <a href="../customers/index.html">
+              Customers
+            </a>
+          </li><li>
+            <a href="../taskers/index.html">
+              Taskers
+            </a>
+          </li><li>
+            <a href="../roles/index.html">
+              Roles
+            </a>
+          </li><li>
+            <a href="../users/index.html">
+              Users
+            </a>
+          </li>
+          <li>
+            <a href="../FAQs/index.html">
+              FAQs
+            </a>
+          </li>
+        </ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="../../layout/overview/index.html">
+        Layout
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="../../layout/overview/index.html">
+              Overview
+            </a>
+          </li><li>
+            <a href="../../layout/grid/index.html">
+              Grid
+            </a>
+          </li><li>
+            <a href="../../layout/utilities-for-layout/index.html">
+              Utilities for layout
+            </a>
+          </li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="../../content/reboot/index.html">
+        Content
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="../../content/reboot/index.html">
+              Reboot
+            </a>
+          </li><li>
+            <a href="../../content/typography/index.html">
+              Typography
+            </a>
+          </li><li>
+            <a href="../../content/code/index.html">
+              Code
+            </a>
+          </li><li>
+            <a href="../../content/images/index.html">
+              Images
+            </a>
+          </li><li>
+            <a href="../../content/tables/index.html">
+              Tables
+            </a>
+          </li><li>
+            <a href="../../content/figures/index.html">
+              Figures
+            </a>
+          </li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="../../components/alerts/index.html">
+        Components
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="../../components/alerts/index.html">
+              Alerts
+            </a>
+          </li><li>
+            <a href="../../components/badge/index.html">
+              Badge
+            </a>
+          </li><li>
+            <a href="../../components/breadcrumb/index.html">
+              Breadcrumb
+            </a>
+          </li><li>
+            <a href="../../components/buttons/index.html">
+              Buttons
+            </a>
+          </li><li>
+            <a href="../../components/button-group/index.html">
+              Button group
+            </a>
+          </li><li>
+            <a href="../../components/card/index.html">
+              Card
+            </a>
+          </li><li>
+            <a href="../../components/carousel/index.html">
+              Carousel
+            </a>
+          </li><li>
+            <a href="../../components/collapse/index.html">
+              Collapse
+            </a>
+          </li><li>
+            <a href="../../components/dropdowns/index.html">
+              Dropdowns
+            </a>
+          </li><li>
+            <a href="../../components/forms/index.html">
+              Forms
+            </a>
+          </li><li>
+            <a href="../../components/input-group/index.html">
+              Input group
+            </a>
+          </li><li>
+            <a href="../../components/jumbotron/index.html">
+              Jumbotron
+            </a>
+          </li><li>
+            <a href="../../components/list-group/index.html">
+              List group
+            </a>
+          </li><li>
+            <a href="../../components/media-object/index.html">
+              Media object
+            </a>
+          </li><li>
+            <a href="../../components/modal/index.html">
+              Modal
+            </a>
+          </li><li>
+            <a href="../../components/navs/index.html">
+              Navs
+            </a>
+          </li><li>
+            <a href="../../components/navbar/index.html">
+              Navbar
+            </a>
+          </li><li>
+            <a href="../../components/pagination/index.html">
+              Pagination
+            </a>
+          </li><li>
+            <a href="../../components/popovers/index.html">
+              Popovers
+            </a>
+          </li><li>
+            <a href="../../components/progress/index.html">
+              Progress
+            </a>
+          </li><li>
+            <a href="../../components/scrollspy/index.html">
+              Scrollspy
+            </a>
+          </li><li>
+            <a href="../../components/spinners/index.html">
+              Spinners
+            </a>
+          </li><li>
+            <a href="../../components/toasts/index.html">
+              Toasts
+            </a>
+          </li><li>
+            <a href="../../components/tooltips/index.html">
+              Tooltips
+            </a>
+          </li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="../../utilities/borders/index.html">
+        Utilities
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="../../utilities/borders/index.html">
+              Borders
+            </a>
+          </li><li>
+            <a href="../../utilities/clearfix/index.html">
+              Clearfix
+            </a>
+          </li><li>
+            <a href="../../utilities/close-icon/index.html">
+              Close icon
+            </a>
+          </li><li>
+            <a href="../../utilities/colors/index.html">
+              Colors
+            </a>
+          </li><li>
+            <a href="../../utilities/display/index.html">
+              Display
+            </a>
+          </li><li>
+            <a href="../../utilities/embed/index.html">
+              Embed
+            </a>
+          </li><li>
+            <a href="../../utilities/flex/index.html">
+              Flex
+            </a>
+          </li><li>
+            <a href="../../utilities/float/index.html">
+              Float
+            </a>
+          </li><li>
+            <a href="../../utilities/image-replacement/index.html">
+              Image replacement
+            </a>
+          </li><li>
+            <a href="../../utilities/overflow/index.html">
+              Overflow
+            </a>
+          </li><li>
+            <a href="../../utilities/position/index.html">
+              Position
+            </a>
+          </li><li>
+            <a href="../../utilities/screen-readers/index.html">
+              Screen readers
+            </a>
+          </li><li>
+            <a href="../../utilities/shadows/index.html">
+              Shadows
+            </a>
+          </li><li>
+            <a href="../../utilities/sizing/index.html">
+              Sizing
+            </a>
+          </li><li>
+            <a href="../../utilities/spacing/index.html">
+              Spacing
+            </a>
+          </li><li>
+            <a href="../../utilities/stretched-link/index.html">
+              Stretched link
+            </a>
+          </li><li>
+            <a href="../../utilities/text/index.html">
+              Text
+            </a>
+          </li><li>
+            <a href="../../utilities/vertical-align/index.html">
+              Vertical align
+            </a>
+          </li><li>
+            <a href="../../utilities/visibility/index.html">
+              Visibility
+            </a>
+          </li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="../../extend/approach/index.html">
+        Extend
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="../../extend/approach/index.html">
+              Approach
+            </a>
+          </li><li>
+            <a href="../../extend/icons/index.html">
+              Icons
+            </a>
+          </li></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="../../migration/index.html">
+        Migration
+      </a>
+
+      <ul class="nav bd-sidenav"></ul>
+    </div><div class="bd-toc-item">
+      <a class="bd-toc-link" href="../../about/overview/index.html">
+        About
+      </a>
+
+      <ul class="nav bd-sidenav"><li>
+            <a href="../../about/overview/index.html">
+              Overview
+            </a>
+          </li><li>
+            <a href="../../about/team/index.html">
+              Team
+            </a>
+          </li><li>
+            <a href="../../about/brand/index.html">
+              Brand
+            </a>
+          </li><li>
+            <a href="../../about/license/index.html">
+              License
+            </a>
+          </li><li>
+            <a href="../../about/translations/index.html">
+              Translations
+            </a>
+          </li></ul>
+    </div></nav>
+
+        </div>
+
+
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="index.html#my-shop">How can my shop be a part of mzoori?</a></li>
+<li class="toc-entry toc-h3"><a href="index.html#doyou">POS system?</a></li>
+<li class="toc-entry toc-h3"><a href="index.html#how-long">How long will it take to be trained?</a></li>
+<li class="toc-entry toc-h3"><a href="index.html#will-my">Will my products be secure?</a></li>
+<li class="toc-entry toc-h3"><a href="index.html#will-my-product">Will my products be restocked in good time?</a></li>
+<li class="toc-entry toc-h3"><a href="index.html#will-i-be">Will I be able to trace my products?</a></li>
+<li class="toc-entry toc-h2"><a href="index.html#mode-of-payment">What mode of payment will we use?</a></li>
+<li class="toc-entry toc-h2"><a href="index.html#how-fast">How fast are deliveries done after an order is made?</a></li>
+<li class="toc-entry toc-h2"><a href="index.html#how-will-retail">How will Retail Pay benefit from the business?</a></li>
+<li class="toc-entry toc-h2"><a href="index.html#what-are-the-req">What are the requirements for sign-up?</a></li>
+<li class="toc-entry toc-h2"><a href="index.html#is-there-a-limit">Is there a limit that has been put in place for acquiring stock?</a></li>
+</ul>
+          </div>
+
+
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+          <h1 class="bd-title" id="content">Reports</h1>
+          <p class="bd-lead">
+            <ul>
+              <li>Resources</li>
+              <li>Help channel (manuals, docs)</li>
+              <li>Chats</li>
+
+
+            </ul>
+
+          </p>
+
+<h2 id="my-shop">How can my shop be a part of mzoori?</h2>
+
+<p>In order to be a part of mzoori, you can contact us through mobile or email and we will give you support.</p>
+
+<p>First of all, we’ll need to verify that you have the following details:</p>
+
+<ul>
+    <li>Filled out mzoori retailer form</li>
+    <li>Any form of business registration- certificate of Incorporation/Business name/Business Permit</li>
+    <li>Copy of proprietor’s ID</li>
+    <li>KRA PIN certificate</li>
+ </ul>
+<p>We will support you with:</p>
+<ul>
+  <li>Induction to and training on the mzoori platform</li>
+  <li>mzoori applications, software and information on approved gadgets</li>
+  <li>Access to a wide pool of pre-qualified mzoori partners to sell to directly or distribute your products to</li>
+  <li>Onboarding of any retail outlets, transporter or warehouse that you may nominate or appoint.</li>
+</ul>
+
+<h3 id="doyou">Do you provide the equipment/POS system?</h3>
+
+<p>Yes! We will install for you a fully automated and decentralized POS with the latest cutting-edge technology that enables you to manage your outlet from anywhere at anytime. It also enables you to continue sales even when offline. If you have your own equipment, we simply install the system for you, if you don’t have your own equipment, we provide you with the equipment as you pay for it gradually.</p>
+
+<h3 id="how-long">How long will it take to be trained to use the system?</h3>
+
+<p>Shouldn’t take long at all. The POS system is very user-friendly so that you’re able to navigate around it easily. We do offer you with training which may take upto 3 weeks, after which we offer you the support from our sales team who are just a call away.</p>
+
+<h3 id="will-my">Will my products be secure?</h3>
+
+<p>Making sure your products are safe is one of our key goals. Mzoori insures all the products across the supply chain upto the time the product is sold and every sale reported to you in realtime and payment to your bank account made immediately.Unlike other models, this totally eliminates the risk of making any losses as you can track your money throughout.</p>
+
+<h3 id="will-my-product">Will my products be restocked in good time?</h3>
+
+<p>Mzoori monitors your stock levels throughout and generates re-orders immediately your stock starts running low. You are therefore guaranteed that the deliveries will be made in good time and your shop will always be fully stocked.
+</p>
+
+<h3 id="will-i-be">Will I be able to trace my products?</h3>
+
+<p>Mzoori empowers you to monitor and track all your goods on-boarded onto the system
+from the warehouse to the retail store realtime, notifies you and settles your payments
+when they are sold.</p>
+
+<!--To change-->
+<h3 id= "mode-of-payment">What mode of payment will we use?</h3>
+<p>Retailpay enables retailers to accept payments from mobile money (mpesa), credit/debit cards and cash
+</p>
+<h3 id ="how-fast">How fast are deliveries done after an order is made?</h3>
+
+<p>Retailpay enables retailers to accept payments from mobile money (mpesa), credit/debit cards and cash</p>
+
+<h3 id ="how-will-retail">How will Retail Pay benefit from the business?</h3>
+<p>Retailpay will receive a convenience charge upon the sale of every products</p>
+
+<h3 id = "what-are-the-req">What are the requirements for sign-up?</h3>
+<p>Mandatory:</p>
+<ul>
+  <li>Certificate of Incorporation/Business name/Business Permit</li>
+  <li>Company PIN Certificate</li>
+  <li>VAT Certificate</li>
+  <li>Names of Directors</li>
+  <li>Photocopy of proprietor(s) ID</li>
+  <li>Next of Kin ID</li>
+  <li>Memorandum and articles of Association</li>
+  <li>Letter of consent with bank details from director(s)</li>
+  <li>Photocopies of permanent staff ID's</li>
+</ul>
+<p>Where applicable:</p>
+<ul>
+  <li>Manufacturer's Licence, Business Permit</li>
+  <li>Policy on Market Returns</li>
+  <li>Ministry of Health Certification (food supplier)</li>
+  <li>Product Price list Inc. VAT and EX-VAT</li>
+  <li>KEBS Certificate</li>
+  <li>Distributorship Letter (Where necessary)</li>
+</ul>
+<h3 id = "is-there-a-limit">Is there a limit that has been put in place for acquiring stock?</h3>
+ <p>There is no limit to acquiring stock because we understand that each store is different with different demands of quantity of goods</p>
+
+<h3 id = "is-it-possible">Is it possible for the retailers to pay for goods in full after a delivery has been made?</h3>
+
+<h3 id="do-we-have">Do we have a price list that we can share so that they compare with what they currently have?</h3>
+<p>Yes, the pricelist I available upon request</p>
+
+<h3 id = "how-long-after">How long after registration will RetailPay begin to supply the stock?</h3>
+<p>About thirty days between registration and supply</p>
+
+<h3 id = "how-certain-are">How certain are we that we will meet the demands of the retailers?</h3>
+ <p>We are certain to meet the demands of retailers</p>
+
+<h3 id = "are-we-supplying">Are we supplying all products?</h3>
+<p>We only apply selective products</p>
+
+<h3 id= "how-often-will">How often will RetailPay be supplying the products.</h3>
+ <p>When we receive a reorder</p>
+
+<h3 id ="will-the-price">Will the prices be stable?</h3>
+<p>Prices may change depending on the market value of a product</p>
+
+
+
+        </main>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="../../dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script><script src="../../assets/js/docs.min.js"></script>
+  </body>
+</html>
